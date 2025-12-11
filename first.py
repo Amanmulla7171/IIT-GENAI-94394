@@ -1,0 +1,3 @@
+
+
+print("STRAT LEARNING GENAI")
