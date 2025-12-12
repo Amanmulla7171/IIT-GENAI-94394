@@ -2,7 +2,7 @@
 
 import requests
 
-api_key = "3c557e82e2dff710aa821313a49b1dfd"
+api_key = "****************************"
 
 
 def get_weather_info(city):
