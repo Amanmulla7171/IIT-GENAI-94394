@@ -1,0 +1,93 @@
+username,chat_id,role,content
+aman,6257b5e8-3301-4a39-a87d-26f2bff67f17,user,hi
+aman,6257b5e8-3301-4a39-a87d-26f2bff67f17,assistant,It's nice to meet you. Is there something I can help you with or would you like to chat?
+aman,846456b9-d823-47ad-a6ab-e8d57cdc7a74,user,"hello, tell about the kolhapur"
+aman,846456b9-d823-47ad-a6ab-e8d57cdc7a74,assistant,"Hello, Kolhapur is a city located in the state of Maharashtra, India. It is situated on the banks of the Panchganga River and is known for its rich history, cultural heritage, and natural beauty. Here are some interesting facts about Kolhapur:
+
+1. **Historical Significance**: Kolhapur has a long and storied history, with evidence of human habitation dating back to the 3rd century BC. It was an important center of power during the Satavahana dynasty and later became a part of the Maratha Empire.
+2. **Mahalaxmi Temple**: The city is home to the famous Mahalaxmi Temple, a revered shrine dedicated to the goddess Laxmi. The temple is known for its stunning architecture and intricate carvings.
+3. **Kolhapuri Chappals**: Kolhapur is famous for its traditional handicraft, Kolhapuri chappals, which are handcrafted leather sandals made from high-quality leather.
+4. **Cuisine**: Kolhapur is known for its delicious cuisine, which includes popular dishes like misal pav, vada pav, and bhel puri. The city is also famous for its sweet dishes, such as Kolhapuri pedha and jalebi.
+5. **Agriculture**: Kolhapur is a major agricultural hub, with crops like sugarcane, cotton, and paddy being grown in the surrounding areas.
+6. **Tourist Attractions**: The city has several tourist attractions, including the Rankala Lake, Shivaji University, and the Kolhapur Museum.
+7. **Festivals**: Kolhapur celebrates several festivals throughout the year, including the Navaratri festival, which is a major attraction in the city.
+8. **Language**: The primary language spoken in Kolhapur is Marathi, but many residents also speak Hindi, English, and other local languages.
+9. **Climate**: Kolhapur has a tropical wet and dry climate, with hot summers and mild winters.
+10. **Economy**: The city's economy is driven by industries like textiles, food processing, and manufacturing, as well as agriculture and tourism.
+
+Overall, Kolhapur is a city with a rich history, cultural heritage, and natural beauty, making it a popular destination for tourists and a great place to live and work.
+
+Would you like to know more about Kolhapur or is there something specific you'd like to know?"
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,user,Hi
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,assistant,It's nice to meet you. Is there something I can help you with or would you like to chat?
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,user,no help req
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,assistant,We can just have a casual conversation then. How's your day going so far?
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,user,well
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,assistant,"That's good to hear. ""Well"" can mean a lot of things, though. Are you having a relaxing day, or is something exciting happening?"
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,user,relaxing day it is!
+Amitabh,d44360fb-5fb0-42c9-90f4-204f0a30bbef,assistant,"Sometimes those are the best kinds of days. No stress, no rush, just taking it easy. What's been the highlight of your relaxing day so far? Or has it just been a gentle, laid-back vibe all day?"
+Amitabh,dca2d854-7047-488b-b943-6b7b0d87c5c6,user,gvyug
+Amitabh,dca2d854-7047-488b-b943-6b7b0d87c5c6,assistant,It seems like you might have typed something accidentally. Could you please rephrase or provide more context so I can better understand what you're trying to communicate?
+aman,0fecf0e4-3a60-408d-b075-5cf17e5d82f6,user,hello
+aman,0fecf0e4-3a60-408d-b075-5cf17e5d82f6,assistant,Hello. It's nice to meet you. Is there something I can help you with or would you like to chat?
+aman,0fecf0e4-3a60-408d-b075-5cf17e5d82f6,user,give the information about the how we add option of add files at the time creating a chatbot using streamlit give the code for that
+aman,0fecf0e4-3a60-408d-b075-5cf17e5d82f6,assistant,"To add the option to upload files while creating a chatbot using Streamlit, you can utilize the `st.file_uploader` function provided by the Streamlit library. Here's an example of how you can integrate this feature into your chatbot:
+
+### Prerequisites
+- Install Streamlit by running `pip install streamlit` in your terminal.
+- Ensure you have a basic understanding of Python and Streamlit.
+
+### Code Example
+
+```python
+import streamlit as st
+import pandas as pd
+
+# Function to handle uploaded files
+def handle_uploaded_file(uploaded_file):
+    if uploaded_file is not None:
+        # Display uploaded file details
+        st.write(""Uploaded File Details:"")
+        st.write(f""Filename: {uploaded_file.name}"")
+        st.write(f""Type: {uploaded_file.type}"")
+        st.write(f""Size: {uploaded_file.size} bytes"")
+        
+        # For example, if you're uploading an image or a CSV file
+        if uploaded_file.type == ""text/csv"":
+            df = pd.read_csv(uploaded_file)
+            st.write(""CSV Data:"")
+            st.write(df)
+        elif uploaded_file.type.startswith(""image/""):
+            st.image(uploaded_file)
+        else:
+            # Handle other types of files as needed
+            st.write(""File contents:"")
+            st.write(uploaded_file.read().decode(""utf-8""))
+
+# Creating the chatbot interface with a file upload option
+st.title(""Chatbot with File Upload"")
+st.subheader(""Upload your file here:"")
+
+uploaded_file = st.file_uploader(""Choose a file"", type=[""csv"", ""pdf"", ""txt"", ""jpg"", ""png""])
+
+if uploaded_file is not None:
+    handle_uploaded_file(uploaded_file)
+
+# Adding a simple chat interface
+st.subheader(""Chat:"")
+user_input = st.text_input(""You:"", placeholder=""Type your message here..."")
+if st.button(""Send""):
+    st.write(f""You: {user_input}"")
+    # Basic chatbot response
+    response = ""I received your message: "" + user_input
+    st.write(f""Bot: {response}"")
+```
+
+### Explanation
+
+- **File Uploader**: The `st.file_uploader` function is used to add a file upload widget to your Streamlit app. You can specify the types of files that can be uploaded.
+- **File Handling Function**: The `handle_uploaded_file` function is a placeholder for how you might want to handle the uploaded file. It currently displays the file's details and previews its contents for images, CSV, and text files.
+- **Chat Interface**: A basic text input and send button are implemented to create a simple chat interface. The chatbot's response is directly based on the user's input for demonstration purposes.
+- **Running the App**: After writing your code, run it with `streamlit run your_script.py`, replacing `your_script.py` with the name of your Python file.
+
+This example provides a foundation. Depending on your specific needs, you can customize the file handling logic and chatbot responses further."
