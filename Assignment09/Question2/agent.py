@@ -127,3 +127,4 @@ while True:
     chat_history.append(ai_message)
 
     print("AI:", ai_message.content)
+form
